@@ -6,6 +6,7 @@ const cors = require('cors');
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 const userRouter = require('./routes/UserRoute');
+const formRouter = require(./router/formRoute');
 app.use(cors());
 app.use(express.urlencoded({extended:false}))
 mongoose.connect( 
@@ -13,6 +14,7 @@ mongoose.connect(
 ).then(()=>{
     console.log("connected to database")
 });
+app.use('/form',formRouter);
 app.use('/user', userRouter);
 app.listen(port, ()=>{
     console.log(`Server is connected to port number ${port}`)
