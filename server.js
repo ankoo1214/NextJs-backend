@@ -6,7 +6,7 @@ const cors = require('cors');
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 const userRouter = require('./routes/UserRoute');
-const formRouter = require(./router/formRoute');
+const formRouter = require(./routes/formRoute');
 app.use(cors());
 app.use(express.urlencoded({extended:false}))
 mongoose.connect( 
